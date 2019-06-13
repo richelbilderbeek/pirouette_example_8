@@ -50,7 +50,7 @@ before_script:
 
 script:
   # Delete all previous results
-  - rm -rf example_6_314
+  - rm -rf example_8_314
   # Go!
   - travis_wait 60 Rscript example_8.R
   # Check if all files are created
