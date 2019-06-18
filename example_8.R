@@ -112,7 +112,7 @@ utils::write.csv(
 )
 
 pir_plot(errors) +
-  ggsave(file.path(example_folder, "errors.png"))
+  ggsave(file.path(example_folder, "errors.png"), width = 7, height = 7)
 
 pir_to_pics(
   phylogeny = phylogeny,

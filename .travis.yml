@@ -69,7 +69,6 @@ script:
   - if [ ! -f example_8_314/twin_posterior_best.png ]; then echo "file 'twin_posterior_best.png' not found" ; exit 1 ; fi
   - #if [ ! -f example_8_314/twin_posterior_gen.png ]; then echo "file 'twin_posterior_gen.png' not found" ; exit 1 ; fi
   - if [ ! -f example_8_314/twin_tree.png ]; then echo "file 'twin_tree.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8_314/absent_tree.png ]; then echo "File 'absent_tree' not found AS IT SHOULD" ; exit 1 ; fi
   # Check dead links
   - rm .travis.yml
   - ./scripts/check_dead_links
