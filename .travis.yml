@@ -54,25 +54,25 @@ script:
   # Go!
   - travis_wait 60 Rscript example_8.R
   # Check if all files are created
-  - if [ ! -f example_8/esses_best.latex ]; then echo "file 'esses_best.latex' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/esses_gen.latex ]; then echo "file 'esses_gen.latex' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/esses_twin_best.latex ]; then echo "file 'esses_twin_best.latex' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/esses_twin_gen.latex ]; then echo "file 'esses_twin_gen.latex' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/true_alignment.png ]; then echo "file 'true_alignment.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/true_error_violin_best.png ]; then echo "file 'true_error_violin_best.png' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/true_error_violin_gen.png ]; then echo "file 'true_error_violin_gen.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/true_posterior_best.png ]; then echo "file 'true_posterior_best.png' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/true_posterior_gen.png ]; then echo "file 'true_posterior_gen.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/twin_alignment.png ]; then echo "file 'twin_alignment.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/twin_error_violin_best.png ]; then echo "file 'twin_error_violin_best.png' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/twin_error_violin_gen.png ]; then echo "file 'twin_error_violin_gen.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/twin_posterior_best.png ]; then echo "file 'twin_posterior_best.png' not found" ; exit 1 ; fi
-  - #if [ ! -f example_8/twin_posterior_gen.png ]; then echo "file 'twin_posterior_gen.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/twin_tree.png ]; then echo "file 'twin_tree.png' not found" ; exit 1 ; fi
-  - if [ ! -f example_8/absent_tree.png ]; then echo "File 'absent_tree' not found AS IT SHOULD" ; exit 1 ; fi
+  - if [ ! -f example_8_314/esses_best.latex ]; then echo "file 'esses_best.latex' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/esses_gen.latex ]; then echo "file 'esses_gen.latex' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/esses_twin_best.latex ]; then echo "file 'esses_twin_best.latex' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/esses_twin_gen.latex ]; then echo "file 'esses_twin_gen.latex' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/true_alignment.png ]; then echo "file 'true_alignment.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/true_error_violin_best.png ]; then echo "file 'true_error_violin_best.png' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/true_error_violin_gen.png ]; then echo "file 'true_error_violin_gen.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/true_posterior_best.png ]; then echo "file 'true_posterior_best.png' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/true_posterior_gen.png ]; then echo "file 'true_posterior_gen.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/twin_alignment.png ]; then echo "file 'twin_alignment.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/twin_error_violin_best.png ]; then echo "file 'twin_error_violin_best.png' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/twin_error_violin_gen.png ]; then echo "file 'twin_error_violin_gen.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/twin_posterior_best.png ]; then echo "file 'twin_posterior_best.png' not found" ; exit 1 ; fi
+  - #if [ ! -f example_8_314/twin_posterior_gen.png ]; then echo "file 'twin_posterior_gen.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/twin_tree.png ]; then echo "file 'twin_tree.png' not found" ; exit 1 ; fi
+  - if [ ! -f example_8_314/absent_tree.png ]; then echo "File 'absent_tree' not found AS IT SHOULD" ; exit 1 ; fi
   # Check dead links
   - rm .travis.yml
   - ./scripts/check_dead_links
 
 after_success:
-  - cd ~/GitHubs/pirouette_article; find .
+  - cd example_8_314 ; find .

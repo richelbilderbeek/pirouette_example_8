@@ -81,9 +81,6 @@ pir_params <- create_pir_params(
   )
 )
 
-print("#######################################################################")
-print("Settings to run on Peregrine cluster")
-print("#######################################################################")
 pir_params$alignment_params$fasta_filename <- file.path(example_folder, "true.fasta")
 for (i in seq_along(pir_params$experiments)) {
   pir_params$experiments[[i]]$beast2_options$input_filename <- file.path(example_folder, "beast2_input_best.xml")
@@ -100,7 +97,6 @@ if (!is_one_na(pir_params$twinning_params)) {
   pir_params$twinning_params$twin_evidence_filename <- file.path(example_folder, "evidence_twin.csv")
 }
 rm_pir_param_files(pir_params)
-print("#######################################################################")
 
 Sys.time()
 errors <- pir_run(
