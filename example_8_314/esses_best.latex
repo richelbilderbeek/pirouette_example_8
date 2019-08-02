@@ -1,5 +1,5 @@
 % latex table generated in R 3.6.0 by xtable 1.8-4 package
-% Thu Jun 13 13:10:28 2019
+% Fri Aug  2 11:36:17 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{ll}
@@ -15,6 +15,5 @@ posterior & 10001 \\
   CoalescentConstant & 10001 \\ 
    \hline
 \end{tabular}
-\caption{ESSes of example 8 for best candidate model} 
-\label{tab:esses_example_8_best}
+\caption{ESSes for best candidate model} 
 \end{table}
