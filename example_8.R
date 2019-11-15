@@ -80,8 +80,6 @@ pir_params <- create_pir_params(
   )
 )
 
-# Make Peregrine friendly
-pir_params <- peregrine::to_pff_pir_params(pir_params)
 rm_pir_param_files(pir_params)
 
 errors <- pir_run(
