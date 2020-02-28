@@ -3,6 +3,11 @@
 library(pirouette)
 suppressMessages(library(ggplot2))
 
+################################################################################
+# Constants
+################################################################################
+is_testing <- is_on_travis()
+
 root_folder <- getwd()
 example_no <- 8
 rng_seed <- 314
@@ -17,44 +22,27 @@ alignment_params <- create_alignment_params(
   sim_tral_fun = get_sim_tral_with_std_nsm_fun(
     mutation_rate = 0.1
   ),
-  root_sequence = create_blocked_dna(length = 1000),
-  rng_seed = rng_seed
+  root_sequence = create_blocked_dna(length = 1000)
 )
 
 # All experiments
 candidate_experiments <- create_all_experiments()
 check_experiments(candidate_experiments)
-
 experiments <- candidate_experiments
-
-# Set the RNG seed
-for (i in seq_along(experiments)) {
-  experiments[[i]]$beast2_options$rng_seed <- rng_seed
-}
-
 check_experiments(experiments)
-
-# Shorter on Travis
-if (is_on_travis()) {
-  for (i in seq_along(experiments)) {
-    experiments[[i]]$inference_model$mcmc$chain_length <- 3000
-    experiments[[i]]$inference_model$mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$chain_length <- 3000
-    experiments[[i]]$est_evidence_mcmc$store_every <- 1000
-    experiments[[i]]$est_evidence_mcmc$epsilon <- 100.0
-  }
-}
 
 pir_params <- create_pir_params(
   alignment_params = alignment_params,
   experiments = experiments,
   twinning_params = create_twinning_params(
-    rng_seed_twin_tree = rng_seed,
-    rng_seed_twin_alignment = rng_seed
+      rng_seed_twin_alignment = rng_seed
   )
 )
 
-rm_pir_param_files(pir_params)
+# Shorter on Travis
+if (is_testing) {
+  pir_params <- shorten_pir_params(pir_params)
+}
 
 errors <- pir_run(
   phylogeny,
