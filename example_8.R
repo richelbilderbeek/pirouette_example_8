@@ -1,7 +1,6 @@
 # Works under Linux and MacOS only
 
 library(pirouette)
-suppressMessages(library(ggplot2))
 
 ################################################################################
 # Constants
@@ -33,6 +32,9 @@ pir_out <- pir_run(
   pir_params = pir_params
 )
 
+################################################################################
+# Save results
+################################################################################
 pir_save(
   phylogeny = phylogeny,
   pir_params = pir_params,
