@@ -7,37 +7,17 @@ suppressMessages(library(ggplot2))
 # Constants
 ################################################################################
 is_testing <- is_on_travis()
-
-root_folder <- getwd()
 example_no <- 8
 rng_seed <- 314
-example_folder <- file.path(root_folder, paste0("example_", example_no, "_", rng_seed))
-dir.create(example_folder, showWarnings = FALSE, recursive = TRUE)
-setwd(example_folder)
+folder_name <- paste0("example_", example_no, "_", rng_seed)
+
 set.seed(rng_seed)
-testit::assert(is_beast2_installed())
 phylogeny <- create_yule_tree(n_taxa = 6, crown_age = 10)
 
-alignment_params <- create_alignment_params(
-  sim_tral_fun = get_sim_tral_with_std_nsm_fun(
-    mutation_rate = 0.1
-  ),
-  root_sequence = create_blocked_dna(length = 1000)
+pir_params <- create_std_pir_params(
+  folder_name = folder_name
 )
-
-# All experiments
-candidate_experiments <- create_all_experiments()
-check_experiments(candidate_experiments)
-experiments <- candidate_experiments
-check_experiments(experiments)
-
-pir_params <- create_pir_params(
-  alignment_params = alignment_params,
-  experiments = experiments,
-  twinning_params = create_twinning_params(
-      rng_seed_twin_alignment = rng_seed
-  )
-)
+stop("Remove generative")
 
 # Shorter on Travis
 if (is_testing) {
@@ -51,20 +31,20 @@ errors <- pir_run(
 
 utils::write.csv(
   x = errors,
-  file = file.path(example_folder, "errors.csv"),
+  file = file.path(folder_name, "errors.csv"),
   row.names = FALSE
 )
 
 pir_plot(errors) +
-  ggsave(file.path(example_folder, "errors.png"), width = 7, height = 7)
+  ggsave(file.path(folder_name, "errors.png"), width = 7, height = 7)
 
 pir_to_pics(
   phylogeny = phylogeny,
   pir_params = pir_params,
-  folder = example_folder
+  folder = folder_name
 )
 
 pir_to_tables(
   pir_params = pir_params,
-  folder = example_folder
+  folder = folder_name
 )
