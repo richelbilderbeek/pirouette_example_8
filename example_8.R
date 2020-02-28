@@ -24,8 +24,6 @@ pir_params <- create_std_pir_params(
   folder_name = folder_name
 )
 stop("Remove generative")
-
-# Shorter on Travis
 if (is_testing) {
   pir_params <- shorten_pir_params(pir_params)
 }
