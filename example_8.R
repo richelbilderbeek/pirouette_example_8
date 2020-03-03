@@ -3,8 +3,8 @@
 # * phylogeny: Yule
 # * pirouette setup: no generative
 #
-# Other examples can be found 
-# at https://github.com/richelbilderbeek/pirouette_examples 
+# Other examples can be found
+# at https://github.com/richelbilderbeek/pirouette_examples
 #
 library(pirouette)
 library(beautier)
@@ -23,7 +23,8 @@ phylogeny <- create_yule_tree(n_taxa = 6, crown_age = 10)
 pir_params <- create_std_pir_params(
   folder_name = folder_name
 )
-stop("Remove generative")
+# Remove generative model
+pir_params$experiments <- pir_params$experiments[-1]
 if (is_testing) {
   pir_params <- shorten_pir_params(pir_params)
 }
