@@ -1,6 +1,6 @@
-Package: pirex3
+Package: pirex8
 Type: Package
-Title: Pirouette Example Three
+Title: Pirouette Example Eight
 Version: 1.0.0
 Authors@R: c(
   person("Richel", "Bilderbeek", email = "richel@richelbilderbeek.nl", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-1107-7049")))
@@ -15,6 +15,7 @@ LazyData: true
 Imports: 
     beastier (>= 2.0.25),
     beautier (>= 2.3),
+    ggplot2,
     pirouette (>= 1.6),
     nLTT (>= 1.4.2)
 
